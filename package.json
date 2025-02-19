@@ -1,14 +1,31 @@
 {
+  "name": "versatility_backend",
+  "version": "1.0.0",
+  "description": "versatility_backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server",
+    "dev": "nodemon server"
+  },
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "body-parser": "^1.20.3",
+    "cloudinary": "^2.4.0",
+    "cookie-parser": "^1.4.6",
+    "command-line-args": "^6.0.0",
+    "command-line-usage": "^7.0.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "express-form-data": "^2.0.23",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.10.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.9",
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
+    "paystack": "^2.0.1",
     "stripe": "^17.6.0"
   }
 }

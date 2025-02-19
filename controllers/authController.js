@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 // Register User
 exports.register = async (req, res) => {
     const { name, email, password, role } = req.body;
+
     try {
         let user = await User.findOne({ email });
         if (user) return res.status(400).json({ msg: 'User already exists' });
@@ -15,7 +16,7 @@ exports.register = async (req, res) => {
         const payload = { user: { id: user.id, role: user.role } };
         jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
             if (err) throw err;
-            res.json({ token });
+            res.status(200).json({ token, message: "Account created successfully",  });
         });
     } catch (err) {
         console.error(err.message);
@@ -36,7 +37,7 @@ exports.login = async (req, res) => {
         const payload = { user: { id: user.id, role: user.role } };
         jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
             if (err) throw err;
-            res.json({ token });
+            res.json({ token, message: "Login succesful" });
         });
     } catch (err) {
         console.error(err.message);
